@@ -1,0 +1,52 @@
+#ex1
+#a) vetor: sequencia de valores númericos ou caracteres.
+#b) funções: a base da linguagem R, resolve uma expressão e retorna um valor.
+#c) listas:usada para armazenar valores de dados diferentes.
+#d) matrizes: conjunto de vetores em linhas e colunas.
+
+#ex2
+#Facilita a interação e as operações lógicas ao serem usadas como fatores.
+
+#ex3
+#A distinção mais importante é que em um 
+#data.frame (ao contrário de uma lista), todos
+#os membros devem ser vetores de igual
+#comprimento.
+#ex4
+Reserva<-c('A','A','A','A','A','A','A','A','A','A','B','B','B','B','B','B','B','B','B','B')
+Reserva<-factor(Reserva)
+Reserva
+Macacos<-c(22,28,37,34,13,24,39,5,33,32,7,15,12,14,4,14,16,60,13,16)
+Frutiferas<-c(25,26,40,30,10,20,35,8,35,28,6,17,18,11,6,15,20,16,12,15)
+macac<-data.frame(Reserva,Macacos,Frutiferas)
+macac
+#a
+macac[,1]
+#é um fator
+#b
+macac[,1]<-as.character(macac[,1])
+macac[,1]
+#c
+mode(macac[,1])
+is.character(macac[,1])
+is.factor(macac[,1])
+#d
+macac[,2]
+macac$Macacos
+#e
+macac$Macacos[12]
+#f
+macac<-cbind(macac, Mortes=c(2,7,1,2,7,4,2,4,3,9,6,6,4,1,3,1,7,2,1,8))
+#g
+macac<-macac[,-3]
+macac
+#h
+A<-macac[1:10,]
+A
+#i
+mean(A[,2])
+mean(A[,3])
+#j
+A[order(A$Mortes),]
+#k
+split(macac, Reserva)
